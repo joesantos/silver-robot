@@ -1,0 +1,192 @@
+@prefix : <http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#> .
+@prefix DUL: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@base <http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject> .
+
+<http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject> rdf:type owl:Ontology ;
+                                                                         owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ,
+                                                                                     ssn: .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/ns/sosa/isObservedBy
+sosa:isObservedBy rdfs:domain :Temperature ,
+                              sosa:ObservableProperty ;
+                  rdfs:range sosa:Sensor .
+
+
+###  http://www.w3.org/ns/sosa/observes
+sosa:observes rdfs:domain sosa:Sensor ;
+              rdfs:range sosa:ObservableProperty .
+
+
+###  http://www.w3.org/ns/sosa/usedProcedure
+sosa:usedProcedure rdfs:domain sosa:Observation ;
+                   rdfs:range sosa:Procedure .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#AirConditioner
+:AirConditioner rdf:type owl:Class ;
+                rdfs:subClassOf sosa:FeatureOfInterest .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#AirConditionerActuator
+:AirConditionerActuator rdf:type owl:Class ;
+                        rdfs:subClassOf sosa:Actuator .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#Cooker
+:Cooker rdf:type owl:Class ;
+        rdfs:subClassOf sosa:FeatureOfInterest .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#CookerActuator
+:CookerActuator rdf:type owl:Class ;
+                rdfs:subClassOf sosa:Actuator .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#Door
+:Door rdf:type owl:Class ;
+      rdfs:subClassOf sosa:FeatureOfInterest .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#DoorActuator
+:DoorActuator rdf:type owl:Class ;
+              rdfs:subClassOf sosa:Actuator .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#Fan
+:Fan rdf:type owl:Class ;
+     rdfs:subClassOf sosa:FeatureOfInterest .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#FanActuator
+:FanActuator rdf:type owl:Class ;
+             rdfs:subClassOf sosa:Actuator .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#HeartrateSensor
+:HeartrateSensor rdf:type owl:Class ;
+                 rdfs:subClassOf sosa:Sensor .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#HumiditySensor
+:HumiditySensor rdf:type owl:Class ;
+                rdfs:subClassOf sosa:Sensor .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#Intensity
+:Intensity rdf:type owl:Class ;
+           rdfs:subClassOf sosa:ObservableProperty .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#Lamp
+:Lamp rdf:type owl:Class ;
+      rdfs:subClassOf sosa:FeatureOfInterest .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#LightSensor
+:LightSensor rdf:type owl:Class ;
+             rdfs:subClassOf sosa:Sensor .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#OpenState
+:OpenState rdf:type owl:Class ;
+           rdfs:subClassOf sosa:ObservableProperty .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#Room
+:Room rdf:type owl:Class ;
+      rdfs:subClassOf sosa:FeatureOfInterest .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#SetEnergyState
+:SetEnergyState rdf:type owl:Class ;
+                rdfs:subClassOf sosa:ActuatableProperty .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#SetIntensity
+:SetIntensity rdf:type owl:Class ;
+              rdfs:subClassOf sosa:ActuatableProperty .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#SetOpenState
+:SetOpenState rdf:type owl:Class ;
+              rdfs:subClassOf sosa:ActuatableProperty .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#SetTemperature
+:SetTemperature rdf:type owl:Class ;
+                rdfs:subClassOf sosa:ActuatableProperty .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#Switch
+:Switch rdf:type owl:Class ;
+        rdfs:subClassOf sosa:Actuator .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#TV
+:TV rdf:type owl:Class ;
+    rdfs:subClassOf sosa:FeatureOfInterest .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#TVActuator
+:TVActuator rdf:type owl:Class ;
+            rdfs:subClassOf sosa:Actuator .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#Temperature
+:Temperature rdf:type owl:Class ;
+             rdfs:subClassOf sosa:ObservableProperty .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#TemperatureSensor
+:TemperatureSensor rdf:type owl:Class ;
+                   rdfs:subClassOf sosa:Sensor .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#WashingMachine
+:WashingMachine rdf:type owl:Class ;
+                rdfs:subClassOf sosa:FeatureOfInterest .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#WashingMachineActuator
+:WashingMachineActuator rdf:type owl:Class ;
+                        rdfs:subClassOf sosa:Actuator .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#Window
+:Window rdf:type owl:Class ;
+        rdfs:subClassOf sosa:FeatureOfInterest .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#WindowActuator
+:WindowActuator rdf:type owl:Class ;
+                rdfs:subClassOf sosa:Actuator .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#casa-joedson
+:casa-joedson rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/joeds/ontologies/2020/3/swotDomoticProject#sala-tv
+:sala-tv rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
