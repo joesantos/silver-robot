@@ -14,9 +14,45 @@ code {
 
 .carrinho-wrapper {
   position: absolute;
-  top: 60px;
-  right: 30px;
+  top: 100px;
+  right: 20%;
   box-shadow: 2px 0px 20px #ccc;
   padding: 30px;
   border-radius: 16px;
+  background-color: #fff;
+}
+
+.loja-card-wrapper {
+  padding: 10px;
+  background-color: #fff2e6;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.loja-card-wrapper a {
+  color: #000;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+button {
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.confirma-compra-button {
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #3a6;
+  color: #fff;
+  text-decoration: none;
+}
+
+.produto-wrapper {
+  padding: 10px;
+  background-color: #fff2e6;
+  margin-bottom: 10px;
+  border-radius: 4px;
 }

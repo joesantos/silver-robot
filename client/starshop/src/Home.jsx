@@ -70,16 +70,17 @@ function Home() {
     <div className="App">
       <header className="App-header"></header>
       <div className="container text-center">
-        <div className="row">
+        <div className="row my-4">
           <div className="col-12">
-            <h2>Aqui você pode encontrar</h2>
+            <h2>ShopTop</h2>
           </div>
         </div>
-        <div className="row">
+        <div className="row my-4">
           <div className="col-12">
             <form>
-              <label htmlFor="filtro"></label>
+              <label htmlFor="filtro">Filtrar por: </label>
               <select
+                name="filtro"
                 onChange={(event) => {
                   if (event.target.value === "false") {
                     setOrdenaPorAtividade(false);
@@ -97,7 +98,7 @@ function Home() {
         <div className="row">
           <div className="col-12"></div>
         </div>
-        <div className="row">
+        <div className="row mb-5">
           <div className="col-12">
             {ordenaPorAtividade && ordenadosPorAtividade ? (
               ordenadosPorAtividade.map((obj) => {
@@ -108,14 +109,15 @@ function Home() {
                       atividade={loja.atividade}
                       uri={loja.uri}
                       isAtiv={true}
+                      nomeLoja={loja.nome}
                     ></LojaCard>
                   );
                 });
                 return (
-                  <>
+                  <div className="mb-4">
                     <h3>{obj.atividade}</h3>
                     {lojas}
-                  </>
+                  </div>
                 );
               })
             ) : lojas ? (
@@ -124,6 +126,7 @@ function Home() {
                   nome={loja.nome}
                   atividade={loja.atividade}
                   uri={loja.uri}
+                  nomeLoja={loja.nome}
                 ></LojaCard>
               ))
             ) : (

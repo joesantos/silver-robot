@@ -143,6 +143,7 @@ const removerItemCarrinho = (produto) => {
 const Loja = () => {
   const search = useLocation().search;
   const id = new URLSearchParams(search).get("id");
+  const nomeLoja = new URLSearchParams(search).get("nomeLoja");
 
   useEffect(() => {
     async function fetchData() {
@@ -192,17 +193,29 @@ const Loja = () => {
           setProdutosCarrinho={setProdutosCarrinho}
         ></Carrinho>
       ) : null}
-
-      <div className="row">
-        <div className="col-6">
-          <button
+      <div className="row text-center my-5">
+        <div className="col-8">
+          <h2>{nomeLoja}</h2>
+        </div>
+        <div className="col-4">
+          <div
             onClick={() => {
               setMostrarCarrinho(true);
             }}
           >
-            Abrir carrinho
-          </button>
+            <i
+              style={
+                produtosCarrinho && produtosCarrinho.length > 0
+                  ? { color: "#3a6" }
+                  : { color: "#ccc" }
+              }
+              className="fas fa-shopping-cart fa-2x"
+            ></i>
+          </div>
         </div>
+      </div>
+
+      <div className="row">
         <div className="col-6">
           {mostrarMapa ? (
             <button
@@ -224,13 +237,18 @@ const Loja = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-12">
+        <div className="col-12 py-4">
           {produtosSemRepeticao ? (
             produtosSemRepeticao.map((produto) => (
-              <p>
-                {produto.nomeProduto} - {produto.valorProduto} -{" "}
+              <div className="produto-wrapper">
+                {produto.nomeProduto} - {produto.valorProduto} - Qtd:{" "}
                 {produto.quantidade}{" "}
                 <button
+                  style={{
+                    marginLeft: "40px",
+                    color: "#fff",
+                    backgroundColor: "#3a6",
+                  }}
                   onClick={() => {
                     let novoCarrinho = adicionaCarrinho(produto);
                     setProdutosCarrinho(novoCarrinho);
@@ -238,7 +256,7 @@ const Loja = () => {
                 >
                   Adicionar ao carrinho
                 </button>
-              </p>
+              </div>
             ))
           ) : (
             <p>Não há produtos</p>

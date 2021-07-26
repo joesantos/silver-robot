@@ -68,27 +68,27 @@ public class ShoppingResource {
         return true;
     }
 
-
-
-    @GetMapping("/direcao")
-    public List<String> getDirecaoPorDestino(
-            @RequestParam String nome
-    ) {
-        return null;
-    }
-
-    @PostMapping("/produto")
-    public String novoProduto(@RequestBody Produto payload) {
-        return null;
-    }
-
-    @PostMapping("/loja")
-    public String novaLoja(@RequestBody Loja payload) {
-        return null;
-    }
-
-    @PostMapping("/atividade")
-    public String saveAtividade(@RequestBody Atividade payload) {
-        return null;
-    }
+//
+//
+//    @GetMapping("/direcao")
+//    public List<String> getDirecaoPorDestino(
+//            @RequestParam String nome
+//    ) {
+//        return null;
+//    }
+//
+//    @PostMapping("/produto")
+//    public String novoProduto(@RequestBody Produto payload) {
+//        return null;
+//    }
+//
+//    @PostMapping("/loja")
+//    public String novaLoja(@RequestBody Loja payload) {
+//        return null;
+//    }
+//
+//    @PostMapping("/atividade")
+//    public String saveAtividade(@RequestBody Atividade payload) {
+//        return null;
+//    }
 }

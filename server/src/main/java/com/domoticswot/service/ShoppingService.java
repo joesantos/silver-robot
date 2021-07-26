@@ -215,29 +215,6 @@ public class ShoppingService {
             e.printStackTrace();
             throw new RuntimeException();
         }
-
-    }
-
-
-
-    public static void executeUpdate(String hasSimpleValue, String propertyUri, RDFConnectionFuseki conn){
-        int value = Integer.parseInt(hasSimpleValue);
-        try {
-            UpdateRequest updateDevice = UpdateFactory.create(SparqlQueryString.getPrefixes() +
-                    "DELETE { ?s :hasLiteral false } INSERT { ?s :hasLiteral true }" +
-                    "WHERE { ?s a owl:NamedIndividual FILTER(?s = <"+propertyUri+">)}"
-            );
-
-            try {
-                conn.update(updateDevice);
-                System.out.println("\n Atualizando o Valor da property");
-
-            } catch (Exception e) {
-                System.out.println("Não foi possível atualizar o estado do dispositivo" + e.getMessage());
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
     }
 }
 
