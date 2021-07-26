@@ -1,0 +1,38 @@
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX  xml:  <http://www.w3.org/XML/1998/namespace>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX sso: <http://nlp2rdf.lod2.eu/schema/sso/>
+PREFIX so: <http://purl.org/ontology/symbolic-music/>
+PREFIX : <http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#>
+
+SELECT (COUNT(?s)as ?sCount) (COUNT(?usuario)as ?usuarioCount) (?sCount-?usuarioCount as ?result) ?l WHERE {
+	?s a owl:NamedIndividual, :Bebida ;
+	:éVendidoEmRestaurante :mc-ronalds, ?l .
+  OPTIONAL {
+     ?s a owl:NamedIndividual, :Bebida ;
+	:éVendidoEmRestaurante :mc-ronalds;
+	:éComprado ?usuario .
+  }
+}
+GROUP BY ?l
+
+
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX  xml:  <http://www.w3.org/XML/1998/namespace>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX sso: <http://nlp2rdf.lod2.eu/schema/sso/>
+PREFIX so: <http://purl.org/ontology/symbolic-music/>
+PREFIX : <http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#>
+
+SELECT ?s WHERE {
+	?s a owl:NamedIndividual, :Roupa ;
+	:éVendidoEmLojaDeRoupa :lojas-reiner .
+}

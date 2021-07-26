@@ -11,17 +11,20 @@ import lombok.Value;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonDeserialize(builder = Produto.FeatureOfInterestBuilder.class)
+@JsonDeserialize(builder = Produto.ProdutoBuilder.class)
 public class Produto {
 
     @JsonPOJOBuilder()
-    public static class FeatureOfInterestBuilder {
+    public static class ProdutoBuilder {
 
     }
 
     String uri;
-
     String nome;
+    String eComprado;
+    Double valorProduto;
 
-    String atividade;
+    String eVendidoEm;
+    String tipoProduto;
+
 }

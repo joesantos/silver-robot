@@ -24,4 +24,6 @@ public class Loja {
     String nome;
 
     String atividade;
+
+    String endereco;
 }

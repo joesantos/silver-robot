@@ -1,8 +1,7 @@
 package com.domoticswot.resource;
 
-import com.domoticswot.model.Atividade;
-import com.domoticswot.model.Loja;
-import com.domoticswot.model.Produto;
+import com.domoticswot.model.*;
+import com.domoticswot.service.ShoppingService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,8 +12,8 @@ import java.util.List;
 public class ShoppingResource {
 
     @GetMapping("/lojas")
-    public List<String> getLojas() {
-        return null;
+    public List<Loja> getLojasResource() {
+        return ShoppingService.getLojas();
     }
 
     @GetMapping("/loja")
@@ -23,13 +22,13 @@ public class ShoppingResource {
     }
 
     @GetMapping("/produtos")
-    public List<String> getProdutos() {
-        return null;
+    public List<Produto> getProdutosResource() {
+        return ShoppingService.getProdutos();
     }
 
     @GetMapping("/produtosPorLoja")
-    public List<String> getProdutosPorLoja(@RequestParam String nome) {
-        return null;
+    public List<Produto> getProdutosPorLoja(@RequestParam String id) {
+        return ShoppingService.getProdutosPorLoja(id);
     }
 
     @GetMapping("/produto")
@@ -38,6 +37,38 @@ public class ShoppingResource {
     ) {
         return null;
     }
+
+    @PostMapping("/adicionaProduto")
+    public boolean postProduto(@RequestBody CreateProductDTO body){
+
+        System.out.println(body.getLoja());
+
+        ShoppingService.createProduto(body.getUriProduto(),
+                body.getTipoProduto(),
+                body.getEVendidoEmTipo(),
+                body.getLoja(),
+                body.getVendeTipo(),
+                body.getNomeProduto(),
+                body.getValorProduto(),
+                body.getTipoLoja(),
+                body.getNomeLoja());
+
+        return true;
+    }
+
+    @PostMapping("/confirmaCompra")
+    public boolean postCompra(@RequestBody ConfirmaCompraDTO body){
+        ShoppingService.confirmaCompra(
+                body.getUsuario(),
+                body.getCompraTipoProduto(),
+                body.getIdProduto(),
+                body.getTipoProduto()
+        );
+
+        return true;
+    }
+
+
 
     @GetMapping("/direcao")
     public List<String> getDirecaoPorDestino(

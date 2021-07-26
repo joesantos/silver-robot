@@ -1,5 +1,6 @@
 package com.domoticswot;
 
+import com.domoticswot.service.ShoppingService;
 import org.apache.jena.fuseki.main.FusekiServer;
 import org.apache.jena.fuseki.server.DataService;
 import org.apache.jena.query.Dataset;
@@ -28,8 +29,10 @@ public class App {
         Dataset ds = DatasetFactory.create();
         FusekiServer server = FusekiServer.create()
                 .port(3332)
-                .add("/ds", ds, true)
+                .add("/ds", ds)
                 .build() ;
         server.start() ;
+
+        ShoppingService.startEmbeddedFuseki();
     }
 }

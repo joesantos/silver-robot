@@ -1,0 +1,631 @@
+@prefix : <http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13> .
+
+<http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#adicionaCarrinho
+:adicionaCarrinho rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  owl:inverseOf :carrinhoRecebe ;
+                  rdfs:domain :Produto ;
+                  rdfs:range :Carrinho .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#adicionaCarrinhoAlimento
+:adicionaCarrinhoAlimento rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf :adicionaCarrinho ;
+                          owl:inverseOf :carrinhoRecebeAlimento ;
+                          rdfs:domain :Alimento ;
+                          rdfs:range :Carrinho .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#adicionaCarrinhoBebida
+:adicionaCarrinhoBebida rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :adicionaCarrinho ;
+                        owl:inverseOf :carrinhoRecebeBebida ;
+                        rdfs:domain :Bebida ;
+                        rdfs:range :Carrinho .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#adicionaCarrinhoFarmaco
+:adicionaCarrinhoFarmaco rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :adicionaCarrinho ;
+                         owl:inverseOf :carrinhoRecebeFarmaco ;
+                         rdfs:domain :Fármaco ;
+                         rdfs:range :Carrinho .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#adicionaCarrinhoItemEsportivo
+:adicionaCarrinhoItemEsportivo rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf :adicionaCarrinho ;
+                               owl:inverseOf :carrinhoRecebeItemEsportivo ;
+                               rdfs:domain :ItemEsportivo ;
+                               rdfs:range :Carrinho .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#adicionaCarrinhoRoupa
+:adicionaCarrinhoRoupa rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :adicionaCarrinho ;
+                       owl:inverseOf :carrinhoRecebeRoupa ;
+                       rdfs:domain :Roupa ;
+                       rdfs:range :Carrinho .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#cancelaCompra
+:cancelaCompra rdf:type owl:ObjectProperty ;
+               owl:equivalentProperty :retiraCarrinho ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Usuario ;
+               rdfs:range :Produto .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#carrinhoPerde
+:carrinhoPerde rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               owl:inverseOf :retiraCarrinho ;
+               rdfs:domain :Carrinho ;
+               rdfs:range :Produto .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#carrinhoPerdeAlimento
+:carrinhoPerdeAlimento rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :carrinhoPerde ;
+                       owl:inverseOf :retiraAlimento ;
+                       rdfs:domain :Carrinho ;
+                       rdfs:range :Alimento .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#carrinhoPerdeBebida
+:carrinhoPerdeBebida rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :carrinhoPerde ;
+                     owl:inverseOf :retiraBebida ;
+                     rdfs:domain :Carrinho ;
+                     rdfs:range :Bebida .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#carrinhoPerdeFarmaco
+:carrinhoPerdeFarmaco rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :carrinhoPerde ;
+                      owl:inverseOf :retiraFarmaco ;
+                      rdfs:domain :Carrinho ;
+                      rdfs:range :Fármaco .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#carrinhoPerdeItemEsportivo
+:carrinhoPerdeItemEsportivo rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf :carrinhoPerde ;
+                            owl:inverseOf :retiraItemEsportivo ;
+                            rdfs:domain :Carrinho ;
+                            rdfs:range :ItemEsportivo .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#carrinhoPerdeRoupa
+:carrinhoPerdeRoupa rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :carrinhoPerde ;
+                    owl:inverseOf :retiraRoupa ;
+                    rdfs:domain :Carrinho ;
+                    rdfs:range :Roupa .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#carrinhoRecebe
+:carrinhoRecebe rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Carrinho ;
+                rdfs:range :Produto .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#carrinhoRecebeAlimento
+:carrinhoRecebeAlimento rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :carrinhoRecebe ;
+                        rdfs:domain :Carrinho ;
+                        rdfs:range :Alimento .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#carrinhoRecebeBebida
+:carrinhoRecebeBebida rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :carrinhoRecebe ;
+                      rdfs:domain :Carrinho ;
+                      rdfs:range :Bebida .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#carrinhoRecebeFarmaco
+:carrinhoRecebeFarmaco rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :carrinhoRecebe ;
+                       rdfs:domain :Carrinho ;
+                       rdfs:range :Fármaco .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#carrinhoRecebeItemEsportivo
+:carrinhoRecebeItemEsportivo rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf :carrinhoRecebe ;
+                             rdfs:domain :Carrinho ;
+                             rdfs:range :ItemEsportivo .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#carrinhoRecebeRoupa
+:carrinhoRecebeRoupa rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :carrinhoRecebe ;
+                     rdfs:domain :Carrinho ;
+                     rdfs:range :Roupa .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#compra
+:compra rdf:type owl:ObjectProperty ;
+        owl:equivalentProperty :confirmaCompra ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        owl:inverseOf :éComprado ;
+        rdfs:domain :Usuario ;
+        rdfs:range :Produto .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#compraAlimento
+:compraAlimento rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :compra ;
+                rdfs:domain :Usuario ;
+                rdfs:range :Alimento .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#compraBebida
+:compraBebida rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :compra ;
+              rdfs:domain :Usuario ;
+              rdfs:range :Bebida .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#compraFarmaco
+:compraFarmaco rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :compra ;
+               rdfs:domain :Usuario ;
+               rdfs:range :Fármaco .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#compraItemEsportivo
+:compraItemEsportivo rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :compra ;
+                     rdfs:domain :Usuario ;
+                     rdfs:range :ItemEsportivo .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#compraRoupa
+:compraRoupa rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :compra ;
+             rdfs:domain :Usuario ;
+             rdfs:range :Roupa .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#confirmaCompra
+:confirmaCompra rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Usuario ;
+                rdfs:range :Produto .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#retiraAlimento
+:retiraAlimento rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :retiraCarrinho ;
+                rdfs:domain :Alimento ;
+                rdfs:range :Carrinho .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#retiraBebida
+:retiraBebida rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :retiraCarrinho ;
+              rdfs:domain :Bebida ;
+              rdfs:range :Carrinho .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#retiraCarrinho
+:retiraCarrinho rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Produto ;
+                rdfs:range :Carrinho .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#retiraFarmaco
+:retiraFarmaco rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :retiraCarrinho ;
+               rdfs:domain :Fármaco ;
+               rdfs:range :Carrinho .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#retiraItemEsportivo
+:retiraItemEsportivo rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :retiraCarrinho ;
+                     rdfs:domain :ItemEsportivo ;
+                     rdfs:range :Carrinho .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#retiraRoupa
+:retiraRoupa rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :retiraCarrinho ;
+             rdfs:domain :Roupa ;
+             rdfs:range :Carrinho .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#vende
+:vende rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf owl:topObjectProperty ;
+       owl:inverseOf :éVendido ;
+       rdfs:domain :Loja ;
+       rdfs:range :Produto .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#vendeAlimento
+:vendeAlimento rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :vende ;
+               owl:inverseOf :éVendidoEmRestaurante ;
+               rdfs:domain :Restaurante ;
+               rdfs:range :Alimento .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#vendeBebida
+:vendeBebida rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :vende ;
+             owl:inverseOf :éVendidoEmRestaurante ;
+             rdfs:domain :Restaurante ;
+             rdfs:range :Bebida .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#vendeFarmaco
+:vendeFarmaco rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :vende ;
+              owl:inverseOf :éVendidoEmFarmacia ;
+              rdfs:domain :Farmacia ;
+              rdfs:range :Fármaco .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#vendeItemEsportivo
+:vendeItemEsportivo rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :vende ;
+                    owl:inverseOf :éVendidoPorLojaDeEsporte ;
+                    rdfs:domain :LojaDeEsporte ;
+                    rdfs:range :ItemEsportivo .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#vendeRoupa
+:vendeRoupa rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :vende ;
+            owl:inverseOf :éVendidoEmLojaDeRoupa ;
+            rdfs:domain :LojaDeRoupa ;
+            rdfs:range :Roupa .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#éComprado
+:éComprado rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :Produto ;
+           rdfs:range :Usuario .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#éVendido
+:éVendido rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain :Produto ;
+          rdfs:range :Loja .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#éVendidoEmFarmacia
+:éVendidoEmFarmacia rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :éVendido ;
+                    rdfs:domain :Fármaco ;
+                    rdfs:range :Farmacia .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#éVendidoEmLojaDeRoupa
+:éVendidoEmLojaDeRoupa rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :éVendido ;
+                       rdfs:domain :Roupa ;
+                       rdfs:range :LojaDeRoupa .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#éVendidoEmRestaurante
+:éVendidoEmRestaurante rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :éVendido ;
+                       rdfs:domain :Alimento ,
+                                   :Bebida ;
+                       rdfs:range :Restaurante .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#éVendidoPorLojaDeEsporte
+:éVendidoPorLojaDeEsporte rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf :éVendido ;
+                          rdfs:domain :ItemEsportivo ;
+                          rdfs:range :LojaDeEsporte .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Atividade
+:Atividade rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Loja ;
+           rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Endereço
+:Endereço rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Login
+:Login rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Usuario ;
+       rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#NomeLoja
+:NomeLoja rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain :Loja ;
+          rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#NomeProduto
+:NomeProduto rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Produto ;
+             rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#NomeUsuario
+:NomeUsuario rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Usuario ;
+             rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Senha
+:Senha rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Usuario ;
+       rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#ValorProduto
+:ValorProduto rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :Produto ;
+              rdfs:range xsd:decimal .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Alimento
+:Alimento rdf:type owl:Class ;
+          rdfs:subClassOf :Produto .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Bebida
+:Bebida rdf:type owl:Class ;
+        rdfs:subClassOf :Produto .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Carrinho
+:Carrinho rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Farmacia
+:Farmacia rdf:type owl:Class ;
+          rdfs:subClassOf :Loja .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Fármaco
+:Fármaco rdf:type owl:Class ;
+         rdfs:subClassOf :Produto .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#ItemEsportivo
+:ItemEsportivo rdf:type owl:Class ;
+               rdfs:subClassOf :Produto .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Loja
+:Loja rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#LojaDeEsporte
+:LojaDeEsporte rdf:type owl:Class ;
+               rdfs:subClassOf :Loja .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#LojaDeRoupa
+:LojaDeRoupa rdf:type owl:Class ;
+             rdfs:subClassOf :Loja .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Produto
+:Produto rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Restaurante
+:Restaurante rdf:type owl:Class ;
+             rdfs:subClassOf :Loja .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Roupa
+:Roupa rdf:type owl:Class ;
+       rdfs:subClassOf :Produto .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#Usuario
+:Usuario rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#burger-bling
+:burger-bling rdf:type owl:NamedIndividual ,
+                       :Restaurante ;
+              :vendeAlimento :milho-lata ;
+              :Atividade "Vende Alimento e Bebida"^^rdfs:Literal ;
+              :Endereço "Bloco 1 - Corredor 3 - Loja 2"^^rdfs:Literal ;
+              :NomeLoja "Burger Bling"^^rdfs:Literal .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#calca-zaro
+:calca-zaro rdf:type owl:NamedIndividual ,
+                     :Roupa ;
+            :éVendidoEmLojaDeRoupa :lojas-reiner ;
+            :NomeProduto "Calça Zaro"^^rdfs:Literal ;
+            :ValorProduto 199.90 .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#droga-braia
+:droga-braia rdf:type owl:NamedIndividual ,
+                      :Farmacia ;
+             :vendeFarmaco :lovalgina ;
+             :Atividade "Vende Fármacos"^^rdfs:Literal ;
+             :Endereço "Bloco 2 - Corredor 4 - Loja 3"^^rdfs:Literal ;
+             :NomeLoja "Droga Braia"^^rdfs:Literal .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#joelson
+:joelson rdf:type owl:NamedIndividual ,
+                  :Usuario ;
+         :compraRoupa :polo-locoste ;
+         :Login "joelson"^^rdfs:Literal ;
+         :NomeUsuario "Joelson"^^rdfs:Literal ;
+         :Senha "joelson123"^^rdfs:Literal .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#lojas-reiner
+:lojas-reiner rdf:type owl:NamedIndividual ,
+                       :LojaDeRoupa ;
+              :vendeRoupa :calca-zaro ,
+                          :polo-locoste ;
+              :Atividade "Vende Roupa"^^rdfs:Literal ;
+              :Endereço "Bloco 6 - Corredor 1 - Loja 10"^^rdfs:Literal ;
+              :NomeLoja "Lojas Reiner"^^rdfs:Literal .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#lovalgina
+:lovalgina rdf:type owl:NamedIndividual ,
+                    :Fármaco ;
+           :éComprado :pablo ;
+           :éVendidoEmFarmacia :droga-braia ;
+           :NomeProduto "Lovalgina"^^rdfs:Literal ;
+           :ValorProduto 12.49 .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#mc-ronalds
+:mc-ronalds rdf:type owl:NamedIndividual ,
+                     :Restaurante ;
+            :vendeBebida :pocacola ;
+            :Atividade "Vende Alimento e Bebida"^^rdfs:Literal ;
+            :Endereço "Bloco 8 - Corredor 1 - Loja 1"^^rdfs:Literal ;
+            :NomeLoja "Mc Ronalds"^^rdfs:Literal .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#milho-lata
+:milho-lata rdf:type owl:NamedIndividual ,
+                     :Alimento ;
+            :éVendidoEmRestaurante :burger-bling ;
+            :NomeProduto "Milho Enlatado"^^rdfs:Literal ;
+            :ValorProduto 5.39 .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#pablo
+:pablo rdf:type owl:NamedIndividual ,
+                :Usuario ;
+       :compraFarmaco :lovalgina ;
+       :Login "pablo"^^rdfs:Literal ;
+       :NomeUsuario "Pablo"^^rdfs:Literal ;
+       :Senha "pablo321"^^rdfs:Literal .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#pecatlon
+:pecatlon rdf:type owl:NamedIndividual ,
+                   :LojaDeEsporte ;
+          :vendeItemEsportivo :raquete-maike ;
+          :Atividade "Venda de Artigos Esportivos"^^rdfs:Literal ;
+          :Endereço "Bloco 6 - Corredor 5 - Loja 5"^^rdfs:Literal ;
+          :NomeLoja "Pecatlon"^^rdfs:Literal .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#pocacola
+:pocacola rdf:type owl:NamedIndividual ,
+                   :Bebida ;
+          :éVendidoEmRestaurante :mc-ronalds ;
+          :NomeProduto "Poca Cola"^^rdfs:Literal ;
+          :ValorProduto 6.50 .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#polo-locoste
+:polo-locoste rdf:type owl:NamedIndividual ,
+                       :Roupa ;
+              :éComprado :joelson ;
+              :éVendidoEmLojaDeRoupa :lojas-reiner ;
+              :NomeProduto "Camiseta Polo Locoste"^^rdfs:Literal ;
+              :ValorProduto 197.80 .
+
+
+###  http://www.semanticweb.org/flavi/ontologies/2021/5/untitled-ontology-13#raquete-maike
+:raquete-maike rdf:type owl:NamedIndividual ,
+                        :ItemEsportivo ;
+               :éVendidoPorLojaDeEsporte :pecatlon ;
+               :NomeProduto "Raquete Maike"^^rdfs:Literal ;
+               :ValorProduto 299.90 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Alimento
+                :Bebida
+                :Fármaco
+                :ItemEsportivo
+                :Roupa
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Carrinho
+                :Loja
+                :Produto
+                :Usuario
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Farmacia
+                :LojaDeEsporte
+                :LojaDeRoupa
+                :Restaurante
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointProperties ;
+  owl:members ( :Atividade
+                :Endereço
+                :Login
+                :NomeLoja
+                :NomeProduto
+                :NomeUsuario
+                :Senha
+                :ValorProduto
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
