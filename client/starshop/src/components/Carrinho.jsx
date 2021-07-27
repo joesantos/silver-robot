@@ -1,5 +1,14 @@
 import { Link } from "react-router-dom";
 
+export const sumProdutos = (arr) => {
+  let soma = 0;
+  arr.forEach((item) => {
+    soma = soma + item.valor;
+  });
+
+  return soma;
+};
+
 const Carrinho = (props) => {
   return (
     <div className="carrinho-wrapper">
@@ -16,7 +25,7 @@ const Carrinho = (props) => {
           return (
             <>
               <div className="mb-3">
-                {produto.nome} - {produto.valor}
+                {produto.nome} - R$ {produto.valor.toFixed(2)}
                 <i
                   onClick={() => {
                     let novo = props.removeItem(produto);
@@ -33,9 +42,12 @@ const Carrinho = (props) => {
         <div>Carrinho vazio</div>
       )}
       {props.produtos && props.produtos.length > 0 ? (
-        <div className="text-center mt-5">
+        <div className="text-center mt-4">
+          <div className="mb-4">
+            Total: R$ {sumProdutos(props.produtos).toFixed(2)}
+          </div>
           <Link className="confirma-compra-button" to="/confirmaCompra">
-            Confirma compra
+            Confirmar compra
           </Link>
         </div>
       ) : null}

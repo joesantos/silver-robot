@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { sumProdutos } from "./components/Carrinho";
 
 const postConfirmarCompra = async (produtos, usuario) => {
   let produtosPayload = [];
@@ -33,9 +34,10 @@ const ConfirmaCompra = (props) => {
   const [usuario, setUsuario] = useState("joelson");
 
   return (
-    <div className="container">
-      <div className="row">
+    <div className="container text-center">
+      <div className="row my-5">
         <div className="col-12">
+          <label htmlFor="">Usuário: </label>
           <select
             value={usuario}
             onChange={(event) => setUsuario(event.target.value)}
@@ -62,12 +64,16 @@ const ConfirmaCompra = (props) => {
           )}
           {produtosCarrinho && produtosCarrinho.length > 0 ? (
             <div>
+              <div className="mb-4">
+                Total: R$ {sumProdutos(produtosCarrinho).toFixed(2)}
+              </div>
               <button
+                className="confirma-compra-button"
                 onClick={() => {
                   postConfirmarCompra(produtosCarrinho, usuario);
                 }}
               >
-                Confirma compra
+                Finalizar compra
               </button>
             </div>
           ) : null}
